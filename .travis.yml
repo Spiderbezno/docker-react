@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t spiderbezno/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run spiderbezno/docker-react npm run test -- --coverage
